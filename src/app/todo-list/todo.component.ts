@@ -6,7 +6,7 @@ import { Component, Input,
   selector: 'todo', 
   template: `<span> {{text}} </span>` 
 }) 
-class Todo { 
+export class TodoComponent { 
   @Input() text: string; 
   @Input() completed: boolean; 
   @Output() toggle = new EventEmitter(); 

@@ -1,14 +1,13 @@
 import { Component, Inject, EventEmitter, Input } from '@angular/core'
 import { Observer, Observable } from 'rxjs'
-import { Action, AddTodoAction, ToggleTodoAction, SetVisibilityFilter } from './actions';
-import { AppState, Todo } from './state';
-//import { dispatcher } from ''
+import { Action, AddTodoAction, ToggleTodoAction, SetVisibilityFilter } from '../shared/actions';
+import { AppState, Todo, dispatcher, state } from '../shared/stateAndDispatcher';
 
 @Component({ 
   selector: 'filter-link', 
   template: `<a href="#"><ng-content></ng-content></a>` 
 }) 
-class FilterLink { 
+export class FilterLink { 
   @Input() filter: string; 
 
   constructor(
@@ -26,10 +25,10 @@ class FilterLink {
 } 
 
 @Component({ 
-  selector: 'footer', 
+  selector: 'filter-selector', 
   template: `
    <filter-link filter="SHOW_ALL">All</filter-link>
    <filter-link  filter="SHOW_ACTIVE">Active</filter-link>
    <filter-link filter="SHOW_COMPLETED">Completed</filter-link>`
 }) 
-class Footer {}
+export class FilterSelectorComponent {}
